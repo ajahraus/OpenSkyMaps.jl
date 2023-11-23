@@ -1,0 +1,5 @@
+*.jl.*.cov
+*.jl.cov
+*.jl.mem
+/Manifest.toml
+test/Buildings_3D__S1624015/*

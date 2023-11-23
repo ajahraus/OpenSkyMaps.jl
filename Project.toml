@@ -1,0 +1,6 @@
+[deps]
+BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
+GLMakie = "e9467ef8-e4e7-5192-8a1a-b1aee30e663a"
+Meshes = "eacbb407-ea5a-433e-ab97-5258b1ca43fa"
+Rotations = "6038ab10-8711-5258-84ad-4b1120ba62dc"
+StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
