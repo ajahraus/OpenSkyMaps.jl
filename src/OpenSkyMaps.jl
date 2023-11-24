@@ -1,6 +1,6 @@
 module OpenSkyMaps
 using Meshes
-using LinearAlgebra: dot
+using LinearAlgebra: dot, normalize
 
 export OpenSkyMap, polarFromCartesian, project_to_polar
 
@@ -20,17 +20,10 @@ function polarFromCartesian(point)
     return Point(point.coords[1:2] .* (2φ / (π * ρ))...)
 end
 
-function filter_normals(geometry)
-    normals = geometry |>
-              elements .|>
-              simplexify .|>
-              first .|>
-              normal
+function filter_normals(geometry::Mesh)::BitVector
+    normals = geometry |> elements .|> simplexify .|> first .|> normal
+    sample_coordinates = geometry |> elements .|> centroid .|> coordinates .|> normalize
 
-    sample_coordinates = geometry .|>
-                         vertices .|>
-                         first .|>
-                         coordinates
     facing_bit_vector = dot.(normals, sample_coordinates) .< 0.0
     return facing_bit_vector
 end
