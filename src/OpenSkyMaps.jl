@@ -1,8 +1,6 @@
 module OpenSkyMaps
 using Meshes
 using LinearAlgebra: dot
-using Base.Iterators: take
-using Base.Iterators: map as imap
 
 export OpenSkyMap, polarFromCartesian, project_to_polar, filter_height, filter_normal, sample_normal, sample_coordinate, clamp_z
 
